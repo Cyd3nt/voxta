@@ -4,7 +4,6 @@ using System.Text.Json.Serialization;
 namespace Voxta.Services.Oobabooga;
 
 [Serializable]
-[SuppressMessage("ReSharper", "RedundantDefaultMemberInitializer")]
 public class OobaboogaParameters
 {
     [JsonPropertyName("preset")]
@@ -57,7 +56,6 @@ public class OobaboogaParameters
 }
 
 [Serializable]
-[SuppressMessage("ReSharper", "RedundantDefaultMemberInitializer")]
 public class OobaboogaRequestBody : OobaboogaParameters
 {
     [JsonPropertyName("do_sample")]

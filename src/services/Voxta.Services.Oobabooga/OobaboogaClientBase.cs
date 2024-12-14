@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using System.Text.Json.Serialization;
 using Voxta.Abstractions.Repositories;
 using Voxta.Shared.RemoteServicesUtils;
 
@@ -26,21 +27,23 @@ public class OobaboogaClientBase : RemoteLLMServiceClientBase<OobaboogaSettings,
     protected async Task<string> SendCompletionRequest(OobaboogaRequestBody body, CancellationToken cancellationToken)
     {
         var json = await SendCompletionRequest<TextGenResponse>(body, cancellationToken);
-        var text = json.results?[0].text ?? throw new OobaboogaException("Empty response");
+        var text = json.Results?[0].Text ?? throw new OobaboogaException("Empty response");
         return text.TrimExcess();
     }
 
     [Serializable]
-    [SuppressMessage("ReSharper", "InconsistentNaming")]
     private class TextGenResponse
     {
-        public List<TextGenResponseResult>? results { get; init; }
+        [JsonPropertyName("results")]
+
+        public List<TextGenResponseResult>? Results { get; init; }
     }
 
     [Serializable]
     [SuppressMessage("ReSharper", "InconsistentNaming")]
     private class TextGenResponseResult
     {
-        public string? text { get; init; }
+        [JsonPropertyName("text")]
+        public string? Text { get; init; }
     }
 }
