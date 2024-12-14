@@ -15,7 +15,9 @@ using Voxta.Services.Vosk;
 using Voxta.Services.AzureSpeechService;
 using Voxta.Services.Mocks;
 using Voxta.Services.TextGenerationInference;
-#if(WINDOWS)
+using Voxta.Services.LMStudio;
+
+#if (WINDOWS)
 using Voxta.Services.WindowsSpeech;
 #endif
 #if(!WINDOWS)
@@ -233,6 +235,51 @@ public class ServiceSettingsController : Controller
         ClearService(profile, serviceId);
         await _profileRepository.SaveProfileAsync(profile);
         
+        return RedirectToAction("Settings", "Settings");
+    }
+
+    [HttpGet("/settings/lmstudio/{serviceId:guid}")]
+    public async Task<IActionResult> LMStudioSettingsAsync([FromRoute] Guid serviceId, [FromQuery] bool stayOnPage, CancellationToken cancellationToken)
+    {
+        var settings = await _servicesRepository.GetAsync<LMStudioSettings>(serviceId, cancellationToken) ?? new ConfiguredService<LMStudioSettings>
+        {
+            Id = serviceId,
+            ServiceName = LMStudioConstants.ServiceName,
+            Settings = new LMStudioSettings
+            {
+                Uri = "http://127.0.0.1:1234",
+            }
+        };
+        var vm = new LMStudioSettingsViewModel(settings);
+        return View(vm);
+    }
+
+    [HttpPost("/settings/lmstudio/{serviceId:guid}")]
+    public async Task<IActionResult> PostLMStudioSettingsAsync([FromRoute] Guid serviceId, [FromForm] LMStudioSettingsViewModel value)
+    {
+        if (!ModelState.IsValid)
+        {
+            return View("LMStudioSettings", value);
+        }
+        if (serviceId == Guid.Empty)
+            serviceId = Crypto.CreateCryptographicallySecureGuid();
+        var settings = value.ToSettings(serviceId);
+        await _servicesRepository.SaveServiceAndSettingsAsync(settings);
+        await UpdateProfileAsync(settings);
+
+        if (value.StayOnPage)
+            return RedirectToAction("LMStudioSettings", new { serviceId, stayOnPage = value.StayOnPage });
+        else
+            return RedirectToAction("Settings", "Settings");
+    }
+
+    [HttpPost("/settings/lmstudio/{serviceId:guid}/delete")]
+    public async Task<IActionResult> DeleteLMStudioSettingsAsync([FromRoute] Guid serviceId)
+    {
+        await _servicesRepository.DeleteAsync(serviceId);
+        var profile = await _profileRepository.GetRequiredProfileAsync(CancellationToken.None);
+        ClearService(profile, serviceId);
+        await _profileRepository.SaveProfileAsync(profile);
         return RedirectToAction("Settings", "Settings");
     }
 

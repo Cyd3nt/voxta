@@ -24,6 +24,7 @@
         <ProjectReference Include="..\..\common\Voxta.Core\Voxta.Core.csproj" />
         <ProjectReference Include="..\..\common\Voxta.Security.Windows\Voxta.Security.Windows.csproj" />
         <ProjectReference Include="..\..\services\Voxta.Services.Azure.SpeechService\Voxta.Services.Azure.SpeechService.csproj" />
+        <ProjectReference Include="..\..\services\Voxta.Services.LMStudio\Voxta.Services.LMStudio.csproj" />
         <ProjectReference Include="..\..\storage\Voxta.Data.LiteDB\Voxta.Data.LiteDB.csproj" />
         <ProjectReference Include="..\..\services\Voxta.Services.ElevenLabs\Voxta.Services.ElevenLabs.csproj" />
         <ProjectReference Include="..\..\services\Voxta.Services.Mocks\Voxta.Services.Mocks.csproj" />
