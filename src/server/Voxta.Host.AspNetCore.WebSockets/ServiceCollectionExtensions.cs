@@ -85,7 +85,13 @@ public static class ServiceCollectionExtensions
         textGenRegistry.RegisterOobabooga();
         actionInferenceRegistry.RegisterOobabooga();
         summarizationRegistry.RegisterOobabooga();
-        
+
+        services.AddLMStudio();
+        helpRegistry.RegisterLMStudio();
+        textGenRegistry.RegisterLMStudio();
+        actionInferenceRegistry.RegisterLMStudio();
+        summarizationRegistry.RegisterLMStudio();
+
         services.AddTextGenerationInference();
         helpRegistry.RegisterTextGenerationInference();
         textGenRegistry.RegisterTextGenerationInference();

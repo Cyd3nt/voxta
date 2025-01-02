@@ -6,10 +6,10 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Root", "Root", "{F4B78CA0-7DAD-48D0-9DDE-8EA5F0E6061E}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
-		LICENSE.md = LICENSE.md
-		README.md = README.md
-		.github\workflows\package.yml = .github\workflows\package.yml
 		.github\FUNDING.yml = .github\FUNDING.yml
+		LICENSE.md = LICENSE.md
+		.github\workflows\package.yml = .github\workflows\package.yml
+		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{6AB181C5-92BE-45CB-890F-EF6B60BBA7C0}"
@@ -104,13 +104,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Voxta.IntegrationTests", "t
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Voxta.Security.Windows", "src\common\Voxta.Security.Windows\Voxta.Security.Windows.csproj", "{C3658929-D1B9-441D-9652-85DFF5EBFC18}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Voxta.Services.LMStudio", "src\services\Voxta.Services.LMStudio\Voxta.Services.LMStudio.csproj", "{2C97DCAF-511E-40A4-9F1E-C8F8B0C8E85D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{92BBD2EE-6FF3-42AA-BCCE-6736C8EB6B9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -245,6 +244,13 @@ Global
 		{C3658929-D1B9-441D-9652-85DFF5EBFC18}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C3658929-D1B9-441D-9652-85DFF5EBFC18}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C3658929-D1B9-441D-9652-85DFF5EBFC18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C97DCAF-511E-40A4-9F1E-C8F8B0C8E85D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C97DCAF-511E-40A4-9F1E-C8F8B0C8E85D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C97DCAF-511E-40A4-9F1E-C8F8B0C8E85D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C97DCAF-511E-40A4-9F1E-C8F8B0C8E85D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{6A1407C5-B5D2-4651-ADE0-36CAE2C4F66E} = {6AB181C5-92BE-45CB-890F-EF6B60BBA7C0}
@@ -291,5 +297,6 @@ Global
 		{96A6E81A-785E-44D3-99E1-68B21F892D80} = {0F532F72-A704-49C6-9346-2C220B432FD1}
 		{2129C27D-AE68-4719-9664-A06F58C6DEBB} = {96A6E81A-785E-44D3-99E1-68B21F892D80}
 		{C3658929-D1B9-441D-9652-85DFF5EBFC18} = {6A1407C5-B5D2-4651-ADE0-36CAE2C4F66E}
+		{2C97DCAF-511E-40A4-9F1E-C8F8B0C8E85D} = {35AF5316-3D66-4671-8BDE-3451123AE7EA}
 	EndGlobalSection
 EndGlobal

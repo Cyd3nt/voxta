@@ -1,10 +1,10 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Text.Json.Serialization;
 
-namespace Voxta.Services.Oobabooga;
+namespace Voxta.Services.LMStudio;
 
 [Serializable]
-public class OobaboogaParameters
+public class LMStudioParameters
 {
     [JsonPropertyName("preset")]
     public string Preset { get; init; } = "None";
@@ -56,7 +56,7 @@ public class OobaboogaParameters
 }
 
 [Serializable]
-public class OobaboogaRequestBody : OobaboogaParameters
+public class LMStudioRequestBody : LMStudioParameters
 {
     [JsonPropertyName("do_sample")]
     public bool DoSample { get; init; } = true;

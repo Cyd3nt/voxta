@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="AutoMapper" Version="12.0.1" />
+        <PackageReference Include="Microsoft.Extensions.Http" Version="7.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\common\Voxta.Abstractions\Voxta.Abstractions.csproj" />
+      <ProjectReference Include="..\..\common\Voxta.Common\Voxta.Common.csproj" />
+      <ProjectReference Include="..\..\shared\Voxta.Shared.LLMUtils\Voxta.Shared.LLMUtils.csproj" />
+      <ProjectReference Include="..\..\shared\Voxta.Shared.RemoteServicesUtils\Voxta.Shared.RemoteServicesUtils.csproj" />
+    </ItemGroup>
+
+</Project>
